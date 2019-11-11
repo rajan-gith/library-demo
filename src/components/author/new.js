@@ -67,7 +67,7 @@ export default class NewAuthor extends Component{
           <br/>
           <br/>
           <input type="file" />
-            <br/>
+          <br/>
           <br/>
           <input type="submit" value="Submit"/>
 				</form>
