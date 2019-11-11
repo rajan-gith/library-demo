@@ -3,7 +3,9 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Authors from './author/Index.js';
 import NewAuthor from './author/new';
 import View from './author/view';
+import ViewTime from './author/view_time';
 import {Link} from 'react-router-dom'
+
 
 class Menu extends Component{
 	render() {
@@ -27,8 +29,8 @@ class Menu extends Component{
 								</Link>
 							</li>
 							<li>
-								<Link to="/view">
-									View
+								<Link to="/view_time">
+									View time
 								</Link>
 							</li>
 						</ul>
@@ -38,6 +40,7 @@ class Menu extends Component{
 							<Route  exact path="/"  component = {Authors} />
 							<Route  exact path="/new"  component = {NewAuthor} />
 							<Route  exact path="/view"  component = {View} />
+							<Route  exact path="/view_time"  component = {ViewTime} />
 						</Switch>
 					</div>
 				</BrowserRouter>
