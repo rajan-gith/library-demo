@@ -26,15 +26,21 @@ class Menu extends Component{
 									View
 								</Link>
 							</li>
+							<li>
+								<Link to="/view">
+									View
+								</Link>
+							</li>
 						</ul>
-						<Switch>
-	            <Route  exact path="/"  component = {Authors} />
-	            <Route  exact path="/new"  component = {NewAuthor} />
-							<Route  exact path="/view"  component = {View} />
-	          </Switch>
-
 	        </div>
-	      </BrowserRouter>
+					<div>
+						<Switch>
+							<Route  exact path="/"  component = {Authors} />
+							<Route  exact path="/new"  component = {NewAuthor} />
+							<Route  exact path="/view"  component = {View} />
+						</Switch>
+					</div>
+				</BrowserRouter>
 		);
 	}
 }
