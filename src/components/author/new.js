@@ -32,14 +32,14 @@ export default class NewAuthor extends Component{
 	  		(result) => {
 	  		}, (error) => {
 	  		});
-	  		
+
     		event.preventDefault();
 		    this.setState(initial_state)
 	  }
 
 	  handle_input = (event) => {
 			this.setState( {[event.target.name]: event.target.value });
-		} 
+		}
 
 
 
@@ -48,14 +48,14 @@ export default class NewAuthor extends Component{
 			<div>
 				<form onSubmit = {this.handleSubmit}>
 				  First name:<br/>
-				  <input type="text" name="first_name" onChange={this.handleChange} />
+				  <input type="text" name="first_name" value={this.state.first_name} onChange={this.handleChange} />
 				  <br/>
 				  Last name:<br/>
-				  <input type="text" name="last_name" onChange={this.handleChange} />
+				  <input type="text" name="last_name" value={this.state.last_name} onChange={this.handleChange} />
 				  <br/>
 				  <input type="submit" value="Submit"/>
 				</form>
-			</div> 
+			</div>
 		);
 	}
 }
