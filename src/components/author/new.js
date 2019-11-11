@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 const initial_state = {
-  first_name: '',
+  first_name: 'jhhhh',
   last_name: '',
   type: '',
 }
@@ -28,7 +28,7 @@ export default class NewAuthor extends Component{
 						"Access-Control-Allow-Methods": "*",
 						"Access-Control-Allow-Headers": "*",
 	  			},
-	  			body: JSON.stringify(this.state)
+	  			body: JSON.stringify(this.state),
 	  		}).then(res => res.json()).then(
 	  		(result) => {
 	  		}, (error) => {
