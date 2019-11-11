@@ -23,14 +23,14 @@ export default class Authors extends Component{
   				this.setState({
   					isLoaded: true,
   					authors: result.authors,
-  					errors: null				
+  					errors: null
   				});
   			}
   			else{
   				this.setState({
   					isLoaded: true,
   					authors: [],
-  					errors: "Can not load the authors"				
+  					errors: "Can not load the authors"
   				});
   			}
   		});
@@ -50,8 +50,8 @@ export default class Authors extends Component{
 								<div>
 									{author.id} : {author.first_name} {author.last_name}
 								</div>
-								)
-						}) 
+							)
+						})
 					}
 				</div>);
 		}
@@ -62,7 +62,4 @@ export default class Authors extends Component{
 				</div>);
 		}
 	}
-
-
-
 }
