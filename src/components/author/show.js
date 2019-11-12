@@ -13,7 +13,7 @@ export default class Show extends Component {
 
 
   componentDidMount = () => {
-    // console.log(this.props);
+    console.log(this.props.match.params.id); //  params.id == this.props.match.params.id 
     const { match: { params } } = this.props;
     fetch(`http://localhost:3000/api/v1/authors/${params.id}`,{
   		method: 'get'
