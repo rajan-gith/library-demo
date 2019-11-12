@@ -33,8 +33,8 @@ export default class Authors extends Component{
     }
   }
 
-  componentDidMount = () =>{
-  	fetch("http://localhost:3000/api/v1/authors",{
+	fetch_authors = () => {
+		fetch("http://localhost:3000/api/v1/authors",{
   		method: 'get'
   	})
   	.then(response => response.json())
@@ -54,7 +54,34 @@ export default class Authors extends Component{
   				});
   			}
   		});
+	}
+
+  componentDidMount = () =>{
+			this.fetch_authors()
   	}
+
+	deleteHandle = (event) => {
+		console.log(event)
+		// console.log(event.target.getAttribute("data_key"));
+		fetch(`http://localhost:3000/api/v1/authors/${event}`,{
+  		method: 'delete',
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Credentials": "*",
+				"Access-Control-Expose-Headers": "*",
+				"Access-Control-Max-Age": "*",
+				"Access-Control-Allow-Methods": "*",
+				"Access-Control-Allow-Headers": "*",
+			},
+  	})
+		.then(result => result.json())
+		.then((result) => {
+			// this.componentDidMount()
+			this.fetch_authors();
+		})
+
+	}
 
 
 	render() {
@@ -79,6 +106,8 @@ export default class Authors extends Component{
 									<Link to={`/authors/edit/${author.id}`} >
 										edit
 									</Link>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<button onClick = {(e) => {this.deleteHandle(author.id)}} >Delete</button>
 								</div>
 							)
 						})

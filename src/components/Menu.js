@@ -46,6 +46,7 @@ class Menu extends Component{
 							<Route  exact path="/view_time"  component = {ViewTime} />
 							<Route  exact path="/authors/:id"  component = {Show} />
 							<Route  exact path="/authors/edit/:id"  component = {EditAuthor} />
+							<Route  exact path="/authors/:id"  component = {EditAuthor} />
 						</Switch>
 					</div>
 				</BrowserRouter>
