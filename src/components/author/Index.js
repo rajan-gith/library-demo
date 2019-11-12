@@ -53,6 +53,10 @@ export default class Authors extends Component{
 									<Link exact to={`/authors/${author.id}`} >
 										{author.id} : {author.first_name} {author.last_name}
 									</Link>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<Link exact to={`/authors/edit/${author.id}`} >
+										edit
+									</Link>
 								</div>
 							)
 						})
