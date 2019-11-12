@@ -4,6 +4,7 @@ import Authors from './author/Index.js';
 import NewAuthor from './author/new';
 import View from './author/view';
 import Show from './author/show';
+import EditAuthor from './author/edit';
 import ViewTime from './author/view_time';
 import {Link} from 'react-router-dom'
 
@@ -44,6 +45,7 @@ class Menu extends Component{
 							<Route  exact path="/view"  component = {View} />
 							<Route  exact path="/view_time"  component = {ViewTime} />
 							<Route  exact path="/authors/:id"  component = {Show} />
+							<Route  exact path="/authors/edit/:id"  component = {EditAuthor} />
 						</Switch>
 					</div>
 				</BrowserRouter>
