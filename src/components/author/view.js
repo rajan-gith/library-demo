@@ -7,7 +7,7 @@ function View_me(props) {
 }
 const names = ["avatar", "war", "stones", "captain", "fan"]
 
-const names_div = (names.map((name) => 
+const names_div = (names.map((name) =>
                     { return (<div>Welcome please {name} <br/><br/></div>) }
                   ))
 

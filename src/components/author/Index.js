@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 
 export default class Authors extends Component{
 
@@ -44,10 +45,13 @@ export default class Authors extends Component{
 			return(
 				<div>
 					data is loaded.
+					<Link to="/authors/new">
+						Create
+					</Link>
 					{
 						this.state.authors.map((author) => {
 							return(
-								<div>
+								<div key={author.id}>
 									{author.id} : {author.first_name} {author.last_name}
 								</div>
 							)

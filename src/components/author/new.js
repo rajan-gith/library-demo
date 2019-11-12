@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 
 const initial_state = {
-  first_name: 'jhhhh',
+  first_name: '',
   last_name: '',
-  type: '',
 }
 
 export default class NewAuthor extends Component{
@@ -53,20 +52,7 @@ export default class NewAuthor extends Component{
 				  <br/>
 				  Last name:<br/>
 				  <input type="text" name="last_name" value={this.state.last_name} onChange={this.handleChange} />
-				  <br/>
           <br/>
-          <label>pick any fruit type:</label>
-          <br/>
-          <select value={this.state.type} onChange={this.handleChange}>
-            <option value="">Please select</option>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-          <br/>
-          <br/>
-          <input type="file" />
           <br/>
           <br/>
           <input type="submit" value="Submit"/>

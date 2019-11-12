@@ -15,12 +15,12 @@ class Menu extends Component{
 	          <ul className="navstyle">
 							<li>
 								<Link to="/">
-									Authors
+									Home
 								</Link>
 							</li>
 							<li>
-								<Link to="/new">
-									Create
+								<Link to="/authors">
+									Authors
 								</Link>
 							</li>
 							<li>
@@ -37,8 +37,9 @@ class Menu extends Component{
 	        </div>
 					<div>
 						<Switch>
-							<Route  exact path="/"  component = {Authors} />
-							<Route  exact path="/new"  component = {NewAuthor} />
+							<Route  exact path="/"  component = {Home} />
+							<Route  exact path="/authors"  component = {Authors} />
+							<Route  exact path="/authors/new"  component = {NewAuthor} />
 							<Route  exact path="/view"  component = {View} />
 							<Route  exact path="/view_time"  component = {ViewTime} />
 						</Switch>
@@ -46,6 +47,14 @@ class Menu extends Component{
 				</BrowserRouter>
 		);
 	}
+}
+
+function Home() {
+		return (
+			<div>
+				Welcome to react client page(Home page).
+			</div>
+				);
 }
 
 export default Menu;
