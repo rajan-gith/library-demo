@@ -3,10 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default class Authors extends Component{
 	search = (event) => {
-		this.setState({
-		  search_str: event.target.value ,
-		});
-		fetch(`http://localhost:3000/api/v1/authors?search_str=${this.state.search_str}`,{
+		fetch(`http://localhost:3000/api/v1/authors?search_str=${event.target.value}`,{
   		method: 'get',
   	}).then(response => response.json())
 		.then((result) => {
