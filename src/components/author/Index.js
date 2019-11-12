@@ -50,7 +50,7 @@ export default class Authors extends Component{
 								<div>
 									{author.id} : {author.first_name} {author.last_name}
 								</div>
-								)
+							)
 						})
 					}
 				</div>);
