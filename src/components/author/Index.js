@@ -60,7 +60,6 @@ export default class Authors extends Component{
 	render() {
 		var { isLoaded, items } = this.state;
 		if (this.state.isLoaded === true){
-
 			return(
 				<div>
 					data is loaded.
@@ -68,7 +67,8 @@ export default class Authors extends Component{
 						Create
 					</Link>
 					<input onChange={ this.search }></input>
-					{
+					{ this.state.authors.length===0 ?
+						<div>No search result</div>:
 						this.state.authors.map((author) => {
 							return(
 								<div key={author.id}>

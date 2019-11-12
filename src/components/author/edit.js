@@ -61,7 +61,7 @@ export default class EditAuthor extends Component{
 
 	  submitHandler = (event) => {
       const { match: { params } } = this.props;
-      console.log(JSON.stringify(this.state));
+      // console.log(JSON.stringify(this.state));
 	  	fetch(`http://localhost:3000/api/v1/authors/${params.id}`,
 	  		{
 	  			method: "put",
@@ -97,7 +97,9 @@ export default class EditAuthor extends Component{
 				  <input type="text" name="first_name" value={this.state.first_name} onChange={this.handleChange} />
 				  <br/>
 				  Last name:<br/>
-				  <input type="text" name="last_name" value={this.state.last_name} onChange={this.handleChange} />
+				  <input type="text" name="last_name" value={this.state.last_name} onChange={(event) => {this.setState({
+            [event.target.name]: event.target.value
+          }); }} />
           <br/>
           <br/>
           <br/>
