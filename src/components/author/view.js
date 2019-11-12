@@ -7,8 +7,8 @@ function View_me(props) {
 }
 const names = ["avatar", "war", "stones", "captain", "fan"]
 
-const names_div = (names.map((name) =>
-                    { return (<div>Welcome please {name} <br/><br/></div>) }
+const names_div = (names.map((name, i) =>
+                    { return (<div key={i}>Welcome please {name} <br/><br/></div>) }
                   ))
 
 export default class View extends Component{

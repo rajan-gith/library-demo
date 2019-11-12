@@ -11,11 +11,14 @@ export default class ViewTime extends Component{
   }
 
   componentDidMount(){
-    setInterval(() =>
-      this.setState({
-        date: new Date(),
+    this.timerId = setInterval(
+      () => this.setState({
+          date: new Date(),
       })
     ,1000)
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerId);
   }
 
 
