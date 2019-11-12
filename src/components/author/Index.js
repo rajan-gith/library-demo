@@ -2,13 +2,37 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 
 export default class Authors extends Component{
+	search = (event) => {
+		this.setState({
+		  search_str: event.target.value ,
+		});
+		fetch(`http://localhost:3000/api/v1/authors?search_str=${this.state.search_str}`,{
+  		method: 'get',
+  	}).then(response => response.json())
+		.then((result) => {
+			if (result.status === 200){
+				this.setState({
+					isLoaded: true,
+					authors: result.authors,
+					errors: null
+				});
+			}
+			else{
+				this.setState({
+					isLoaded: true,
+					authors: [],
+					errors: "Can not load the authors"
+				});
+			}
+		})
+	}
 
 	constructor(props){
     super(props);
     this.state = {
       authors: [],
       isLoaded: false,
-      errors: null
+      errors: null,
     }
   }
 
@@ -38,14 +62,15 @@ export default class Authors extends Component{
 
 	render() {
 		var { isLoaded, items } = this.state;
-
 		if (this.state.isLoaded === true){
+
 			return(
 				<div>
 					data is loaded.
 					<Link to="/authors/new">
 						Create
 					</Link>
+					<input onChange={ this.search }></input>
 					{
 						this.state.authors.map((author) => {
 							return(
