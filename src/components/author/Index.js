@@ -13,8 +13,6 @@ export default class Authors extends Component{
   }
 
   componentDidMount = () =>{
-
-
   	fetch("http://localhost:3000/api/v1/authors",{
   		method: 'get'
   	})
@@ -52,7 +50,9 @@ export default class Authors extends Component{
 						this.state.authors.map((author) => {
 							return(
 								<div key={author.id}>
-									{author.id} : {author.first_name} {author.last_name}
+									<Link exact to={`/authors/${author.id}`} >
+										{author.id} : {author.first_name} {author.last_name}
+									</Link>
 								</div>
 							)
 						})
