@@ -61,25 +61,27 @@ export default class Authors extends Component{
   	}
 
 	deleteHandle = (event) => {
-		console.log(event)
 		// console.log(event.target.getAttribute("data_key"));
-		fetch(`http://localhost:3000/api/v1/authors/${event}`,{
-  		method: 'delete',
-			headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "*",
-				"Access-Control-Allow-Credentials": "*",
-				"Access-Control-Expose-Headers": "*",
-				"Access-Control-Max-Age": "*",
-				"Access-Control-Allow-Methods": "*",
-				"Access-Control-Allow-Headers": "*",
-			},
-  	})
-		.then(result => result.json())
-		.then((result) => {
-			// this.componentDidMount()
-			this.fetch_authors();
-		})
+		let yes = window.confirm("you sure to delete this user");
+		if (yes === true){
+			fetch(`http://localhost:3000/api/v1/authors/${event}`,{
+	  		method: 'delete',
+				headers: {
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": "*",
+					"Access-Control-Allow-Credentials": "*",
+					"Access-Control-Expose-Headers": "*",
+					"Access-Control-Max-Age": "*",
+					"Access-Control-Allow-Methods": "*",
+					"Access-Control-Allow-Headers": "*",
+				},
+	  	})
+			.then(result => result.json())
+			.then((result) => {
+				// this.componentDidMount()
+				this.fetch_authors();
+			})
+		}
 
 	}
 

@@ -30,11 +30,18 @@ export default class NewAuthor extends Component{
 	  			body: JSON.stringify(this.state),
 	  		}).then(res => res.json()).then(
 	  		(result) => {
+          if (result.status === 401){
+            console.log("can not create author");
+          }else {
+            this.props.history.push('/authors')
+          }
 	  		}, (error) => {
 	  		});
 
     		event.preventDefault();
 		    this.setState(initial_state)
+
+
 	  }
 
 	  handle_input = (event) => {
