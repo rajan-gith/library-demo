@@ -60,6 +60,8 @@ function Home() {
 		</div>
 		);
 }
+
+// functions ready to use here
 const scaleNames = {
   c: 'Celsius',
   f: 'Fahrenheit'
@@ -82,13 +84,19 @@ function tryConvert(temperature, convert) {
   const rounded = Math.round(output * 1000) / 1000;
   return rounded.toString();
 }
+// end of ready to use functions
 
+// created functional component to display msg
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
     return <p>The water would boil.</p>;
   }
   return <p>The water would not boil.</p>;
 }
+//end of functional component that displays msg
+
+
+// creation of temperature input component
 class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
@@ -96,6 +104,7 @@ class TemperatureInput extends React.Component {
   }
 
   handleChange(e) {
+		// console.log(e.target.value);
     this.props.onTemperatureChange(e.target.value);
   }
 
@@ -106,11 +115,16 @@ class TemperatureInput extends React.Component {
       <fieldset>
         <legend>Enter temperature in {scaleNames[scale]}:</legend>
         <input value={temperature}
-               onChange={this.handleChange} />
+					onChange={this.handleChange} />
       </fieldset>
     );
   }
 }
+
+//end of input component
+
+
+//Calculator begins
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -121,6 +135,7 @@ class Calculator extends React.Component {
   }
 
   handleCelsiusChange(temperature) {
+		console.log(temperature);
     this.setState({scale: 'c', temperature});
   }
 
@@ -129,6 +144,7 @@ class Calculator extends React.Component {
   }
 
   render() {
+		console.log(JSON.stringify(this.state));
     const scale = this.state.scale;
     const temperature = this.state.temperature;
     const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
@@ -150,5 +166,6 @@ class Calculator extends React.Component {
     );
   }
 }
+// Calculator ends
 
 export default Menu;
