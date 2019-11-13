@@ -105,7 +105,7 @@ export default class Authors extends Component{
 										{author.id} : {author.first_name} {author.last_name}
 									</Link>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<Link to={`/authors/edit/${author.id}`} >
+									<Link to={`/authors/${author.id}/edit`} >
 										edit
 									</Link>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
