@@ -39,7 +39,7 @@ class Menu extends Component{
 	        </div>
 					<div>
 						<Switch>
-							<Route  exact path="/"  component = {FlavorForm} />
+							<Route  exact path="/"  component = {Calculator} />
 							<Route  exact path="/authors"  component = {Authors} />
 							<Route  exact path="/authors/new"  component = {NewAuthor} />
 							<Route  exact path="/view"  component = {View} />
@@ -60,38 +60,41 @@ function Home() {
 		</div>
 		);
 }
-class FlavorForm extends React.Component {
+const scaleNames = {
+  c: 'Celsius',
+  f: 'Fahrenheit'
+};
+
+class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'coconut'};
-
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {temperature: ''};
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('Your favorite flavor is: ' + this.state.value);
-    event.preventDefault();
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
   }
 
   render() {
+    const temperature = this.state.temperature;
+    const scale = this.props.scale;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Pick your favorite flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <fieldset>
+        <legend>Enter temperature in {scaleNames[scale]}:</legend>
+        <input value={temperature} onChange={this.handleChange} />
+      </fieldset>
+    );
+  }
+}
+
+class Calculator extends React.Component {
+  render() {
+    return (
+      <div>
+        <TemperatureInput scale="c" />
+        <TemperatureInput scale="f" />
+      </div>
     );
   }
 }
